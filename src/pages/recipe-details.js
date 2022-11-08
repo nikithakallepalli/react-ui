@@ -132,21 +132,9 @@ export default class RecipeDetails extends Component {
                         <div className="recipe-horizontal-rule greyscale-4">
                             <hr/>
                         </div>
-                        <div className="wrapper tags-wrapper"><h3 className="title h4-text primary-dark">Recipe Tags</h3>
-                            <ul className="recipe-tags">
-                                {this.state.recipe_tags.map((tags, index) =>
-                                    <li className="recipe-tag micro-text font-bold" title="Course: Desserts">
-                                        <a className="tag-link primary-teal" title="Desserts" aria-label="Desserts" href="#">{tags}</a>
-                                    </li>
-                                )}
-                            </ul>
-                        </div>
 
-                        <div className="recipe-horizontal-rule greyscale-4">
-                            <hr/>
-                        </div>
-
-                        <div className="wrapper tags-wrapper"><h3 className="title h4-text primary-dark">Directions</h3>
+                        <div className="wrapper tags-wrapper">
+                            <h3 className="title h4-text primary-dark">Directions</h3>
                             <div className="shopping-list-ingredients">
                                 {this.state.directions.map((direction, index) =>
                                     <div className="add-ingredient show-add">
@@ -160,6 +148,21 @@ export default class RecipeDetails extends Component {
                                 )}
                             </div>
                         </div>
+
+                        <div className="recipe-horizontal-rule greyscale-4">
+                            <hr/>
+                        </div>
+
+                        <div className="wrapper tags-wrapper"><h3 className="title h4-text primary-dark">Recipe Tags</h3>
+                            <ul className="recipe-tags">
+                                {this.state.recipe_tags.map((tags, index) =>
+                                    <li className="recipe-tag micro-text font-bold" title="Course: Desserts">
+                                        <a className="tag-link primary-teal" title="Desserts" aria-label="Desserts" href="#">{tags}</a>
+                                    </li>
+                                )}
+                            </ul>
+                        </div>
+
 
                         <div className="footer"></div>
                     </div>
