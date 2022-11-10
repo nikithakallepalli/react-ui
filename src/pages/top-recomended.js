@@ -18,7 +18,7 @@ export default class TopRecomended extends Component {
         axios.get(url)
             .then(response => {
                 const data = response.data;
-                this.setState({popularRecipes: data.recipes.slice(0, 4)});
+                this.setState({popularRecipes: data.recipes.slice(0, 8)});
                 this.setState({isLoading: false});
             })
             .catch(error => {

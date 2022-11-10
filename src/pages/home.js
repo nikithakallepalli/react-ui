@@ -14,6 +14,8 @@ export default class Home extends Component {
             isLoading: false,
             ingredients: [],
             selectedIngredient: [],
+            searchKeyResult: [],
+            ingredientsOrg: [],
             searchRecipe: [],
             search: false,
         };
@@ -44,7 +46,7 @@ export default class Home extends Component {
         axios.get(url)
             .then(response => {
                 const ingredients = response.data;
-                this.setState({ingredients: ingredients.ingredients.slice(0, 20)});
+                this.setState({ingredients: ingredients.ingredients.slice(0, 20), ingredientsOrg: ingredients.ingredients});
             })
             .catch(error => {
                 this.setState({toDashboard: true});
@@ -75,6 +77,21 @@ export default class Home extends Component {
         this.setState({ingredients: [...this.state.ingredients, value]})
     }
 
+    handleLoginKeyUp = (e) => {
+        const temp = [];
+        if (e.target.value.length > 1) {
+            this.state.ingredientsOrg.map((a) => {
+                console.log(a.substr(0, e.target.value.length).toLowerCase() === e.target.value.toLowerCase())
+                if (a.includes(e.target.value.toLowerCase()) && (a.substr(0, e.target.value.length).toLowerCase() === e.target.value.toLowerCase())) {
+                    temp.push(a)
+                    console.log(a.substr(0, e.target.value.length).toLowerCase())
+                }
+            });
+            this.setState({searchKeyResult: temp.slice(0, 5)});
+        }
+        console.log(this.state.searchKeyResult)
+    }
+
 
     render() {
         const isLoading = this.state.isLoading;
@@ -88,7 +105,7 @@ export default class Home extends Component {
                                 <div className="col-md-12 pantry-ingredient-search">
                                     <form className="suggest-form desktop pantry-search">
                                         <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="false" className="ingredient-suggest-container">
-                                            <input type="text" autoComplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1" className="ingredient-suggest-input p1-text" name="IngredientSuggestInput" placeholder="Enter your ingredients"/>
+                                            <input type="text" autoComplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1" className="ingredient-suggest-input p1-text" name="IngredientSuggestInput" onKeyUp={(e) => this.handleLoginKeyUp(e)} placeholder="Enter your ingredients"/>
                                             <div id="react-autowhatever-1" role="listbox" className="suggestion-container">
                                                 <div className="search-bubbles-section">
                                                     <div className="pantry-suggest-tooltip micro-text font-normal"/>
@@ -103,6 +120,18 @@ export default class Home extends Component {
                                                         )}
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div id="react-autowhatever-2" role="listbox" className="suggestion-containe hidden">
+                                                <ul role="listbox">
+                                                    {this.state.searchKeyResult.map((search, index) =>
+                                                        <li key={`key${index}`} role="option" id={`react-autowhatever-1--item${index}`} aria-selected="false" onClick={() => this.handleAddIngredient(search)} className="ingredient-suggestion" data-suggestion-index="3">
+                                                            <div className="ingredient-suggest-item p2-text">
+                                                                <span className="suggestion-text ml29">{search}</span>
+                                                                <i className="fa fa-plus-circle font search-plus" aria-hidden="true"></i>
+                                                            </div>
+                                                        </li>
+                                                    )}
+                                                </ul>
                                             </div>
                                         </div>
                                         <i className="fa fa-plus-circle" aria-hidden="true"/>

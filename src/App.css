@@ -24187,6 +24187,7 @@ amp-sidebar {
     margin: 8px 8px 32px;
     outline: 0;
     min-height: 316px;
+    border: 1px solid gainsboro;
 }
 
 .recipe-card .card-tags {
@@ -43875,4 +43876,12 @@ hr {
 
 .font {
     font-size: 18px;
+}
+
+.search-plus {
+    top: 15px !important;
+    font-size: 14px;
+}
+.ml29 {
+    margin-left: 29px !important;
 }
