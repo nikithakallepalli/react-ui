@@ -20248,7 +20248,7 @@ amp-sidebar {
 
 .pantry-recipe-grid.RecipeGrid {
     display: block;
-    width: 1180px;
+    width: auto;
     margin-left: 0;
 }
 

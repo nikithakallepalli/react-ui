@@ -4,21 +4,21 @@ import Rating from "react-rating";
 import axios from "axios";
 
 
-export default class TopRecomended extends Component {
+export default class VegRecipes extends Component {
     constructor(props) {
         super(props)
         this.state = {
             isLoading: true,
-            popularRecipes: [],
+            vegRecipes: [],
         };
     }
 
     componentDidMount() {
-        const url = 'http://127.0.0.1:5000/api/recipes/popular';
-        axios.get(url)
+        const url = 'http://127.0.0.1:5000/api/recipes/diet/type';
+        axios.post(url, {"diet": "vegetarian"})
             .then(response => {
                 const data = response.data;
-                this.setState({popularRecipes: data.recipes.slice(0, 4)});
+                this.setState({vegRecipes: data.recipes.slice(0, 8)});
                 this.setState({isLoading: false});
             })
             .catch(error => {
@@ -34,14 +34,14 @@ export default class TopRecomended extends Component {
                 <div className="content-header">
                     <div className="pantry-recipe-grid RecipeGrid">
                         <section className="pantry-grid-header">
-                            <h4 className="grid-title h4-text primary-dark font-bold">Top Recomended Recipes</h4>
+                            <h4 className="grid-title h4-text primary-dark font-bold">Vegetarian Recipes</h4>
                         </section>
                         {isLoading ? (
                             <img src="https://flevix.com/wp-content/uploads/2021/08/Preloader.gif" alt=""/>
                         ) : (
                             <div>
                                 <section className="flex-row card-list">
-                                    {this.state.popularRecipes.map((recipe, index) =>
+                                    {this.state.vegRecipes.map((recipe, index) =>
                                             <div className="recipe-card ingredients-hover single-recipe visible GuidedRecipe YummlyOriginal" data-url="5-Ingredient-Sugar-Cookies-2376884" role="link" id="05-Ingredient-Sugar-Cookies-2376884">
                                     <span className="paywall-action-text justification-flag font-bold background-light micro-text">
                                     <span className="icon locked  y-icon" data-icon=""></span>
