@@ -13,6 +13,7 @@ export default class RecipeDetails extends Component {
             ingredients: [],
             recipe_tags: [],
             directions: [],
+            nutrition: [],
         };
     }
 
@@ -46,7 +47,8 @@ export default class RecipeDetails extends Component {
             .then(response => {
                 const data = response.data;
                 data.ingredientsCount = data.ingredients.length;
-                this.setState({recipeDetils: data, ingredients: data.ingredients.splice(0, 4), recipe_tags: data.recipe_tags, directions: data.directions});
+                const nutrition = data.nutrition.replace(/\[|\]/g,'').split(',')
+                this.setState({recipeDetils: data, nutrition:nutrition, ingredients: data.ingredients.splice(0, 4), recipe_tags: data.recipe_tags, directions: data.directions});
             })
             .catch(error => {
                 this.setState({toDashboard: true});
@@ -95,7 +97,36 @@ export default class RecipeDetails extends Component {
                                 </div>
                             </div>
                             <div className="recipe-details-image">
-                                <img alt="Vanilla Buttercream Frosting" src="https://i0.wp.com/worldfoodtour.co.uk/wp-content/uploads/2013/06/neptune-placeholder-48.jpg" className="recipe-image" data-pin-url="https://www.yummly.com/recipe/Vanilla-Buttercream-Frosting-2052255" data-pin-description="Vanilla Buttercream Frosting with Powdered Sugar, Butter, Vanilla, Milk." width="640" height="640"/>
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <div className="circle">{this.state.nutrition[0]}</div>
+                                        <p className="font20">Carbohydrates</p>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <div className="circle">{this.state.nutrition[1]}</div>
+                                        <p className="font20">Total Fat</p>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <div className="circle">{this.state.nutrition[2]}</div>
+                                        <p className="font20">Sugar</p>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <div className="circle">{this.state.nutrition[3]}</div>
+                                        <p className="font20">Sodium</p>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <div className="circle">{this.state.nutrition[4]}</div>
+                                        <p className="font20">Protein</p>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <div className="circle">{this.state.nutrition[5]}</div>
+                                        <p className="font20">Saturated fat</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="recipe-horizontal-rule greyscale-4">

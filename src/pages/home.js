@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import axios from "axios";
 import {Link} from 'react-router-dom';
 import Rating from "react-rating";
-import backound from './../bal.png';
 
 
 export default class Home extends Component {

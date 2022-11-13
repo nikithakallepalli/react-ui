@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import Rating from "react-rating";
 import axios from "axios";
+import veg from './../veg.jpg';
 
 
 export default class VegRecipes extends Component {
@@ -47,8 +48,8 @@ export default class VegRecipes extends Component {
                                     <span className="icon locked  y-icon" data-icon=""></span>
                                     <span className="text ">Original</span></span>
                                                 <div className="recipe-card-img-wrapper">
-                                                    <img alt="5-Ingredient Sugar Cookies Recipe" src="https://i0.wp.com/worldfoodtour.co.uk/wp-content/uploads/2013/06/neptune-placeholder-48.jpg" className="recipe-card-img placeholder" data-pin-description="5-Ingredient Sugar Cookies with Granulated Sugar, Salted Butter, Granulated Sugar, Large Eggs, All-Purpose Flour, Baking Soda." width="220" height="220"/>
-                                                    <img alt="5-Ingredient Sugar Cookies Recipe" src="https://i0.wp.com/worldfoodtour.co.uk/wp-content/uploads/2013/06/neptune-placeholder-48.jpg" className="recipe-card-img full" data-pin-description="5-Ingredient Sugar Cookies with Granulated Sugar, Salted Butter, Granulated Sugar, Large Eggs, All-Purpose Flour, Baking Soda." width="220" height="220"/>
+                                                    <img alt="5-Ingredient Sugar Cookies Recipe" src={veg} className="recipe-card-img placeholder" data-pin-description="5-Ingredient Sugar Cookies with Granulated Sugar, Salted Butter, Granulated Sugar, Large Eggs, All-Purpose Flour, Baking Soda." width="220" height="220"/>
+                                                    <img alt="5-Ingredient Sugar Cookies Recipe" src={veg} className="recipe-card-img full" data-pin-description="5-Ingredient Sugar Cookies with Granulated Sugar, Salted Butter, Granulated Sugar, Large Eggs, All-Purpose Flour, Baking Soda." width="220" height="220"/>
                                                     <a className="card-ingredients font-light micro-text flex-column" tabIndex="-1" title="5-Ingredient Sugar Cookies" aria-label="5-Ingredient Sugar Cookies" href="#">
                                                         <span title="baking soda, granulated sugar, salted butter, all-purpose flour, large eggs, granulated sugar">baking soda, granulated sugar, salted butter, all-purpose flour and 2 more</span></a></div>
                                                 <Link className="link-overlay" tabIndex="-1" title={recipe.title} aria-label={recipe.title} onClick={() => this.handleViewRecipe(recipe)} to={`/recipe-details`}></Link>

@@ -43986,3 +43986,23 @@ hr {
 [class*="sidebar-dark"] .brand-link {
     border: none;
 }
+
+.circle {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background: #097969;
+    border: 3px solid #3a9691;
+    color: #ffffff;
+    text-align: center;
+    font-size: 23px;
+    padding-top: 12px;
+}
+
+.font20 {
+    font-size: 18px;
+}
+
+.card-primary:not(.card-outline) > .card-header {
+    background: #097969;
+}

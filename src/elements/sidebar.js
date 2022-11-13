@@ -15,13 +15,13 @@ export default class Sidebar extends Component {
                         <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                             <li className="nav-item user-panel mt-3  d-flex">
-                                <Link to={`/login`} className="nav-link" style={{'width': '100px'}}>
+                                <a href="/login" className="nav-link" style={{'width': '100px'}}>
                                     <p>Login</p>
-                                </Link>
+                                </a>
 
-                                <Link to={`/register`} className="nav-link">
+                                <a href="/register" className="nav-link">
                                     <p>Register</p>
-                                </Link>
+                                </a>
                             </li>
 
                             <li className="nav-item user-panel mt-3  d-flex">
