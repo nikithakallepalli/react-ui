@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-
+import logo from './../main_logo.png';
 export default class Sidebar extends Component {
     render() {
         return (
             <aside className="main-sidebar sidebar-dark-primary elevation-4">
-                <a href="index3.html" className="brand-link">
-                    <span className="brand-text font-weight-light font-weight-bold">Meal Generator Systems</span>
+                <a href="#" className="brand-link">
+                    <img src={logo} alt={"logo"} className="brnd-logo"/>
                 </a>
 
                 <div className="sidebar">

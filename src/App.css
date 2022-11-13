@@ -43882,6 +43882,69 @@ hr {
     top: 15px !important;
     font-size: 14px;
 }
+
 .ml29 {
     margin-left: 29px !important;
+}
+
+.card .card-img-top {
+    height: 140px;
+    width: 140px;
+}
+
+.main-footer {
+    background-color: #f4f6f9;
+    border: none !important;
+}
+
+.cuisine-image {
+    border-radius: 50%;
+    width: 63%;
+    height: 148px;
+    border: 1px solid gray;
+}
+
+.centered {
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.pd-b:hover {
+    opacity: 0.5;
+}
+
+.brnd-logo {
+    width: 100%;
+}
+
+.brand-link {
+    display: block;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    transition: width .3s ease-in-out;
+    white-space: nowrap;
+    padding-top: .81rem !important;
+    padding-bottom: 0 !important;
+}
+
+.pd-b {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.flot20 {
+    margin-left: 4rem;
+}
+
+.bakimage {
+    background-image: url('bal.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: left;
+    background-size: 300px 100px;
 }

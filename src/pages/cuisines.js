@@ -1,44 +1,50 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import Header from "../elements/header";
-import Sidebar from "../elements/sidebar";
-import Footer from "../elements/footer";
 
 export default class Cuisines extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            cuisines: [
+                {name: 'American', image: "https://x.yummlystatic.com/web/bubble/cuisine/american.png"},
+                {name: 'African', image: "https://x.yummlystatic.com/web/bubble/cuisine/italian.png"},
+                {name: 'Italian', image: "https://x.yummlystatic.com/web/bubble/cuisine/italian.png"},
+                {name: 'Canadian', image: "https://x.yummlystatic.com/web/bubble/cuisine/southern.png"},
+                {name: 'European', image: "https://x.yummlystatic.com/web/bubble/cuisine/spanish.png"},
+                {name: 'Mexican', image: "https://x.yummlystatic.com/web/bubble/cuisine/mexican.png"},
+                {name: 'Thai', image: "https://x.yummlystatic.com/web/bubble/cuisine/thai.png"},
+                {name: 'Chinese', image: "https://x.yummlystatic.com/web/bubble/cuisine/chinese.png"},
+                {name: 'Indian', image: "https://x.yummlystatic.com/web/bubble/cuisine/indian.png"},
+                {name: 'French', image: "https://x.yummlystatic.com/web/bubble/cuisine/french.png"},
+                {name: 'Greek', image: "https://x.yummlystatic.com/web/bubble/cuisine/greek.png"}
+            ],
+            isLoading: true
+        };
+    }
+
+    handleViewCuisine = (value) => {
+        console.log(value);
+        localStorage.setItem("cuisineDetilsName", value.name);
+    }
+
     render() {
         return (
             <div className="content-wrapper">
                 <div className="content-header">
-                    <section className="content">
-                        <div className="container-fluid">
-                            {/*<h2 className="text-center display-4">Search</h2>*/}
-                            <div className="row">
-                                <div className="col-md-12 pantry-ingredient-search">
-                                    <form className="suggest-form desktop pantry-search">
-                                        <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="false" className="ingredient-suggest-container">
-                                            <input type="text" autoComplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1" className="ingredient-suggest-input p1-text" name="IngredientSuggestInput" placeholder="Enter your ingredients"/>
-                                            <div id="react-autowhatever-1" role="listbox" className="suggestion-container">
-                                                <div className="search-bubbles-section">
-                                                    <div className="pantry-suggest-tooltip micro-text font-normal"></div>
-                                                    <p className="micro-caps font-bold search-bubble-title greyscale-3">Suggested Ingredients</p>
-                                                    <div className="search-bubbles has-gradient" id="pantry-suggested-ingredients">
-                                                        <div className="suggested-ingredient floating button" data-name="egg" data-id="7f618abd-9024-4c59-865c-06909f41f5d1" data-imageurl="https://res.cloudinary.com/db3xqmyhn/image/upload/v1539898464/ings_img/eggs.jpg">
-                                                                <span className="ingredient-content">
-                                                                    <img alt="" src="https://res.cloudinary.com/db3xqmyhn/image/upload/w_24,c_scale/v1539898464/ings_img/eggs.jpg" className="ingredient-image" srcSet="https://res.cloudinary.com/db3xqmyhn/image/upload/w_48,c_scale/v1539898464/ings_img/eggs.jpg 2x" width="24" height="24"/>
-                                                                    <span className="ingredient-name">egg</span>
-                                                                </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <i className="fa fa-plus-circle" aria-hidden="true"></i>
-                                        <i className="fa fa-times-circle" aria-hidden="true"></i>
-                                    </form>
-                                </div>
-                            </div>
+                    <div className="pantry-recipe-grid RecipeGrid">
+                        <section className="pantry-grid-header">
+                            <h4 className="grid-title h4-text primary-dark font-bold">Cuisines</h4>
+                        </section>
+                        <div className="row">
+                            {this.state.cuisines.map((cuisine, index) =>
+                                <Link className="col-md-3 pd-b" key={`${index}-il`} href="#" onClick={() => this.handleViewCuisine(cuisine)} to={`/cuisine-details`}>
+                                    <img className="cuisine-image" src={cuisine.image} alt={cuisine.name}/>
+                                    <div className="centered">{cuisine.name}</div>
+                                </Link>
+                            )}
                         </div>
-                    </section>
+                    </div>
                 </div>
             </div>
         )

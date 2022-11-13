@@ -12,6 +12,7 @@ import TopRecomended from "./pages/top-recomended";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import RecipeDetails from "./pages/recipe-details";
+import CuisineDetails from "./pages/cuisine-details";
 
 function App() {
     return (
@@ -30,6 +31,7 @@ function App() {
                         <Route path="login" element={<Login/>}/>
                         <Route path="register" element={<Register/>}/>
                         <Route path="recipe-details" element={<RecipeDetails/>}/>
+                        <Route path="cuisine-details" element={<CuisineDetails/>}/>
                     </Routes>
                     {window.location.pathname !== '/login' && window.location.pathname !=='/register' && <Footer/>}
                 </Router>

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import axios from "axios";
 import {Link} from 'react-router-dom';
 import Rating from "react-rating";
+import backound from './../bal.png';
+
 
 export default class Home extends Component {
     constructor(props) {
@@ -101,7 +103,7 @@ export default class Home extends Component {
                     <section className="content">
                         <div className="container-fluid">
                             {/*<h2 className="text-center display-4">Search</h2>*/}
-                            <div className="">
+                            <div className="flot20">
                                 <div className="col-md-12 pantry-ingredient-search">
                                     <form className="suggest-form desktop pantry-search">
                                         <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="false" className="ingredient-suggest-container">
