@@ -99,7 +99,7 @@ export default class Home extends Component {
         const isLoading = this.state.isLoading;
         return (
             <div className="content-wrapper">
-                <div className="content-header">
+                <div className="content-header bakimage">
                     <section className="content">
                         <div className="container-fluid">
                             {/*<h2 className="text-center display-4">Search</h2>*/}
@@ -111,7 +111,7 @@ export default class Home extends Component {
                                             <div id="react-autowhatever-1" role="listbox" className="suggestion-container">
                                                 <div className="search-bubbles-section">
                                                     <div className="pantry-suggest-tooltip micro-text font-normal"/>
-                                                    <p className="micro-caps font-bold search-bubble-title greyscale-3">Suggested Ingredients</p>
+                                                    {/*<p className="micro-caps font-bold search-bubble-title greyscale-3">Suggested Ingredients</p>*/}
                                                     <div className="search-bubbles has-gradient" id="pantry-suggested-ingredients">
                                                         {this.state.ingredients.map((ingredient, index) =>
                                                             <div key={`${index}key`} className="suggested-ingredient floating button" data-name={ingredient} onClick={() => this.handleAddIngredient(ingredient)}>
@@ -140,7 +140,7 @@ export default class Home extends Component {
                                         <i className="fa fa-times-circle" aria-hidden="true"/>
                                     </form>
                                 </div>
-                                <h4 className="micro-caps font-bold search-bubble-title greyscale-3">Your Pantry Ingredients</h4>
+                                <h4 className="micro-caps font-bold search-bubble-title greyscale-3">Your Kitchen Ingredients</h4>
                                 <div className="pantry-ingredient-list-wrapper">
                                     <div className="pantry-ingredient-list">
                                         {this.state.selectedIngredient.map((ingredient, index) =>

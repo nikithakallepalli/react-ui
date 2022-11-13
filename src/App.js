@@ -19,7 +19,6 @@ function App() {
         <div className="App">
             <div className="wrapper">
                 <Router>
-                    {window.location.pathname !== '/login' && window.location.pathname !=='/register' && <Header/>}
                     {window.location.pathname !== '/login' && window.location.pathname !=='/register' && <Sidebar/>}
                     <Routes>
                         <Route exact path="/" element={<Home/>}/>

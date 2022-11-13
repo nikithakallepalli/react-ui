@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import logo from './../main_logo.png';
+import logo from './../logo5.png';
 export default class Sidebar extends Component {
     render() {
         return (
@@ -13,41 +13,43 @@ export default class Sidebar extends Component {
 
                     <nav className="mt-2">
                         <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                            <li className="nav-item user-panel mt-3 pb-3 mb-3 d-flex">
+
+                            <li className="nav-item user-panel mt-3  d-flex">
+                                <Link to={`/login`} className="nav-link" style={{'width': '100px'}}>
+                                    <p>Login</p>
+                                </Link>
+
+                                <Link to={`/register`} className="nav-link">
+                                    <p>Register</p>
+                                </Link>
+                            </li>
+
+                            <li className="nav-item user-panel mt-3  d-flex">
                                 <Link to={`/home`} className="nav-link">
-                                    <i className="nav-icon fas fa-th"></i> <p>Recipe Generator</p>
+                                     <p>Recipe Generator</p>
                                 </Link>
                             </li>
-                            <li className="nav-item user-panel mt-3 pb-3 mb-3 d-flex">
+                            <li className="nav-item user-panel mt-3  d-flex">
                                 <Link to={`/top-recomended`} className="nav-link">
-                                    <i className="nav-icon fas fa-copy"></i> <p>Top Recomended</p>
+                                    <p>Top Recomended</p>
                                 </Link>
                             </li>
-                            <li className="nav-item user-panel mt-3 pb-3 mb-3 d-flex">
+                            <li className="nav-item user-panel mt-3  d-flex">
                                 <Link to={`/veg-recipes`} className="nav-link">
-                                    <i className="nav-icon fas fa-chart-pie"></i> <p>Vegetarian Recipes</p>
+                                    <p>Vegetarian Recipes</p>
                                 </Link>
                             </li>
-                            <li className="nav-item user-panel mt-3 pb-3 mb-3 d-flex">
+                            <li className="nav-item user-panel mt-3  d-flex">
                                 <Link to={`/non-veg-recipes`} className="nav-link">
-                                    <i className="nav-icon fas fa-tree"></i> <p>Non-Vegetarian Recipes</p>
+                                     <p>Non-Vegetarian Recipes</p>
                                 </Link>
                             </li>
-                            <li className="nav-item user-panel mt-3 pb-3 mb-3 d-flex">
+                            <li className="nav-item user-panel mt-3  d-flex">
                                 <Link to={`/cuisines`} className="nav-link">
-                                    <i className="nav-icon fas fa-edit"></i> <p>Cuisines</p>
+                                   <p>Cuisines</p>
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <a href="#" className="nav-link">
-                                    <p>&nbsp;</p>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="#" className="nav-link">
-                                    <p>&nbsp;</p>
-                                </a>
-                            </li>
+
                             <li className="nav-item">
                                 <a href="#" className="nav-link">
                                     <p>&nbsp;</p>

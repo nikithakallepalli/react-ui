@@ -19916,7 +19916,7 @@ amp-sidebar {
 
 .pantry-ingredient-search {
     padding: 40px 0;
-    border-bottom: 2px solid #f5f5f5;
+    /*border-bottom: 2px solid #f5f5f5;*/
     /*margin-bottom: 30px;*/
 }
 
@@ -43942,9 +43942,47 @@ hr {
 }
 
 .bakimage {
-    background-image: url('bal.png');
+    background-image: url('https://x.yummlystatic.com/web/img-fruit-bowl.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: left;
-    background-size: 300px 100px;
+    background-position-x: right;
+    background-size: 300px 300px;
+}
+
+.top {
+    background-image: url('top.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /*background-position-x: right;*/
+    background-size: 300px 300px;
+}
+
+
+[class*="sidebar-dark-"] {
+    background-color: #097969;
+}
+
+.navbar-white {
+    background-color: #0c625d;
+}
+
+
+.sidebar-mini .main-sidebar .nav-link, .sidebar-mini-md .main-sidebar .nav-link, .sidebar-mini-xs .main-sidebar .nav-link {
+    width: none;
+}
+
+.sidebar-mini .main-sidebar .nav-link, .sidebar-mini-md .main-sidebar .nav-link, .sidebar-mini-xs .main-sidebar .nav-link {
+    width: none;
+}
+
+.sidebar-mini .main-sidebar .nav-link, .sidebar-mini-md .main-sidebar .nav-link, .sidebar-mini-xs .main-sidebar .nav-link {
+    width: none;
+}
+
+[class*="sidebar-dark"] .user-panel {
+  border: none;
+}
+
+[class*="sidebar-dark"] .brand-link {
+    border: none;
 }
