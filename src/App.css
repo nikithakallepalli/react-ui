@@ -24188,6 +24188,7 @@ amp-sidebar {
     outline: 0;
     min-height: 316px;
     border: 1px solid gainsboro;
+    background-color: #f3f5f8;
 }
 
 .recipe-card .card-tags {
@@ -39572,7 +39573,7 @@ div iframe#launcher {
 .recipe > .recipe-summary {
     color: #4a4a4a;
     margin-top: 0;
-    max-width: 978px;
+    max-width: 90%;
     width: 100%;
     display: flex;
 }
@@ -43980,7 +43981,7 @@ hr {
 }
 
 [class*="sidebar-dark"] .user-panel {
-  border: none;
+    border: none;
 }
 
 [class*="sidebar-dark"] .brand-link {
@@ -44005,4 +44006,16 @@ hr {
 
 .card-primary:not(.card-outline) > .card-header {
     background: #097969;
+}
+
+.rate-review, .recipe > .recipe-summary .recipe-details {
+    margin-top: 0 !important;
+}
+
+.write-review span span span .icon {
+ padding-right: 0;
+    width: 35px;
+}
+.two-line-truncate {
+    text-transform: capitalize;
 }

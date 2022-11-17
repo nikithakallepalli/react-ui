@@ -4,6 +4,7 @@ import Rating from "react-rating";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import {Link} from "react-router-dom";
+import cuisines from './../cuisines.avif';
 
 export default class CuisineDetails extends Component {
 
@@ -24,18 +25,21 @@ export default class CuisineDetails extends Component {
         const bodyFormData = {data}
         console.log(bodyFormData)
         this.state.recipeDetils.rating = value
-        toast.success("Your rating Updated!")
-        // axios.post(url, bodyFormData)
-        //     .then(result => {
-        //         console.info(result)
-        //         if (result.data.message === "Updated rating successfully") {
-        //             toast("Wow so easy!")
-        //         }
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //         this.setState({authError: true, isLoading: false});
-        //     });
+        axios.post(url, bodyFormData)
+            .then(result => {
+                if (result.data.message === "Updated rating successfully") {
+                    toast.success("Your rating Updated!")
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                this.setState({authError: true, isLoading: false});
+            });
+    }
+
+    handleViewRecipe = (value) => {
+        console.log(value);
+        localStorage.setItem("detilsId", value.id);
     }
 
 
@@ -49,7 +53,7 @@ export default class CuisineDetails extends Component {
                 if (response.data) {
                     const data = response.data;
                     this.setState({isLoading: false});
-                    this.setState({recipes: data.recipes});
+                    this.setState({recipes: data.recipes.splice(0, 12)});
                 }
             })
             .catch(error => {
@@ -73,33 +77,41 @@ export default class CuisineDetails extends Component {
                             <div>
                                 <section className="flex-row card-list">
                                     {this.state.recipes.map((recipe, index) =>
-                                            <div className="recipe-card ingredients-hover single-recipe visible GuidedRecipe YummlyOriginal" data-url="5-Ingredient-Sugar-Cookies-2376884" role="link" id="05-Ingredient-Sugar-Cookies-2376884">
-                                    <span className="paywall-action-text justification-flag font-bold background-light micro-text">
-                                    <span className="icon locked  y-icon" data-icon=""></span>
-                                    <span className="text ">Original</span></span>
-                                                <div className="recipe-card-img-wrapper">
-                                                    <img alt="5-Ingredient Sugar Cookies Recipe" src="https://i0.wp.com/worldfoodtour.co.uk/wp-content/uploads/2013/06/neptune-placeholder-48.jpg" className="recipe-card-img placeholder" data-pin-description="5-Ingredient Sugar Cookies with Granulated Sugar, Salted Butter, Granulated Sugar, Large Eggs, All-Purpose Flour, Baking Soda." width="220" height="220"/>
-                                                    <img alt="5-Ingredient Sugar Cookies Recipe" src="https://i0.wp.com/worldfoodtour.co.uk/wp-content/uploads/2013/06/neptune-placeholder-48.jpg" className="recipe-card-img full" data-pin-description="5-Ingredient Sugar Cookies with Granulated Sugar, Salted Butter, Granulated Sugar, Large Eggs, All-Purpose Flour, Baking Soda." width="220" height="220"/>
-                                                    <a className="card-ingredients font-light micro-text flex-column" tabIndex="-1" title="5-Ingredient Sugar Cookies" aria-label="5-Ingredient Sugar Cookies" href="#">
-                                                        <span title="baking soda, granulated sugar, salted butter, all-purpose flour, large eggs, granulated sugar">baking soda, granulated sugar, salted butter, all-purpose flour and 2 more</span></a></div>
-                                                <Link className="link-overlay" tabIndex="-1" title={recipe.title} aria-label={recipe.title} onClick={() => this.handleViewRecipe(recipe)} to={`/recipe-details`}></Link>
-                                                <div className="card-info-wrapper flex-row">
-                                                    <div className="card-info primary-dark">
-                                                        <a className="card-title two-line-truncate p2-text font-normal text-capitalize" title={recipe.title} aria-label={recipe.title} href="#">{recipe.title}</a>
-                                                        <a className="review-stars micro-text" tabIndex="-1" title="Rated 4.17 Out of 5 by Yummly Users" aria-label="Rated 4.17 Out of 5 by Yummly Users" href="#">
-                                                            <Rating
-                                                                placeholderRating={recipe.rating}
-                                                                emptySymbol={<img src="http://dreyescat.github.io/react-rating/assets/images/star-grey.png" className="icon"/>}
-                                                                placeholderSymbol={<img src="http://dreyescat.github.io/react-rating/assets/images/star-red.png" className="icon"/>}
-                                                                fullSymbol={<img src="http://dreyescat.github.io/react-rating/assets/images/star-yellow.png" className="icon"/>}
-                                                            />
-                                                        </a>
-                                                    </div>
-                                                    <div className="card-action no-padding type-add primary-teal">
-                                                        <i className="fa fa-plus-circle font" aria-hidden="true"></i>
-                                                    </div>
+                                        <div className="recipe-card ingredients-hover single-recipe visible GuidedRecipe YummlyOriginal" data-url="5-Ingredient-Sugar-Cookies-2376884" role="link" id="05-Ingredient-Sugar-Cookies-2376884">
+                                            <span className="paywall-action-text justification-flag font-bold background-light micro-text">
+                                            <span className="icon locked  y-icon" data-icon=""></span>
+                                            <span className="text ">Original</span></span>
+                                            <div className="recipe-card-img-wrapper">
+                                                <div>
+                                                    {recipe.image ? (
+                                                        <img src={recipe.image} style={{height: '217px'}} alt={recipe.title}/>
+                                                    ) : (
+                                                        <div>
+                                                            <img alt={recipe.title} src={cuisines} className="recipe-card-img placeholder" width="220" height="220"/>
+                                                            <img alt={recipe.title} src={cuisines} className="recipe-card-img full" width="220" height="220"/>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <a className="card-ingredients font-light micro-text flex-column" tabIndex="-1" title="5-Ingredient Sugar Cookies" aria-label="5-Ingredient Sugar Cookies" href="#">
+                                                    <span title="baking soda, granulated sugar, salted butter, all-purpose flour, large eggs, granulated sugar">baking soda, granulated sugar, salted butter, all-purpose flour and 2 more</span></a></div>
+                                            <Link className="link-overlay" tabIndex="-1" title={recipe.title} aria-label={recipe.title} onClick={() => this.handleViewRecipe(recipe)} to={`/recipe-details`}></Link>
+                                            <div className="card-info-wrapper flex-row">
+                                                <div className="card-info primary-dark">
+                                                    <a className="card-title two-line-truncate p2-text font-normal text-capitalize" title={recipe.title} aria-label={recipe.title} href="#">{recipe.title}</a>
+                                                    <a className="review-stars micro-text" tabIndex="-1" title="Rated 4.17 Out of 5 by Yummly Users" aria-label="Rated 4.17 Out of 5 by Yummly Users" href="#">
+                                                        <Rating
+                                                            placeholderRating={recipe.rating}
+                                                            emptySymbol={<img src="http://dreyescat.github.io/react-rating/assets/images/star-grey.png" className="icon"/>}
+                                                            placeholderSymbol={<img src="http://dreyescat.github.io/react-rating/assets/images/star-red.png" className="icon"/>}
+                                                            fullSymbol={<img src="http://dreyescat.github.io/react-rating/assets/images/star-yellow.png" className="icon"/>}
+                                                        />
+                                                    </a>
+                                                </div>
+                                                <div className="card-action no-padding type-add primary-teal">
+                                                    <i className="fa fa-plus-circle font" aria-hidden="true"></i>
                                                 </div>
                                             </div>
+                                        </div>
                                     )}
                                 </section>
                                 <section className="spinner-section">

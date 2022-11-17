@@ -7,17 +7,17 @@ export default class Cuisines extends Component {
         super(props)
         this.state = {
             cuisines: [
-                {name: 'American', image: "https://x.yummlystatic.com/web/bubble/cuisine/american.png"},
-                {name: 'African', image: "https://x.yummlystatic.com/web/bubble/cuisine/italian.png"},
-                {name: 'Italian', image: "https://x.yummlystatic.com/web/bubble/cuisine/italian.png"},
-                {name: 'Canadian', image: "https://x.yummlystatic.com/web/bubble/cuisine/southern.png"},
-                {name: 'European', image: "https://x.yummlystatic.com/web/bubble/cuisine/spanish.png"},
-                {name: 'Mexican', image: "https://x.yummlystatic.com/web/bubble/cuisine/mexican.png"},
-                {name: 'Thai', image: "https://x.yummlystatic.com/web/bubble/cuisine/thai.png"},
-                {name: 'Chinese', image: "https://x.yummlystatic.com/web/bubble/cuisine/chinese.png"},
-                {name: 'Indian', image: "https://x.yummlystatic.com/web/bubble/cuisine/indian.png"},
-                {name: 'French', image: "https://x.yummlystatic.com/web/bubble/cuisine/french.png"},
-                {name: 'Greek', image: "https://x.yummlystatic.com/web/bubble/cuisine/greek.png"}
+                {name: 'american', image: "https://x.yummlystatic.com/web/bubble/cuisine/american.png"},
+                {name: 'african', image: "https://x.yummlystatic.com/web/bubble/cuisine/italian.png"},
+                {name: 'italian', image: "https://x.yummlystatic.com/web/bubble/cuisine/italian.png"},
+                {name: 'ianadian', image: "https://x.yummlystatic.com/web/bubble/cuisine/southern.png"},
+                {name: 'european', image: "https://x.yummlystatic.com/web/bubble/cuisine/spanish.png"},
+                {name: 'mexican', image: "https://x.yummlystatic.com/web/bubble/cuisine/mexican.png"},
+                {name: 'thai', image: "https://x.yummlystatic.com/web/bubble/cuisine/thai.png"},
+                {name: 'chinese', image: "https://x.yummlystatic.com/web/bubble/cuisine/chinese.png"},
+                {name: 'indian', image: "https://x.yummlystatic.com/web/bubble/cuisine/indian.png"},
+                {name: 'french', image: "https://x.yummlystatic.com/web/bubble/cuisine/french.png"},
+                {name: 'greek', image: "https://x.yummlystatic.com/web/bubble/cuisine/greek.png"}
             ],
             isLoading: true
         };

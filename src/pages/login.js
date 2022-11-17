@@ -29,12 +29,16 @@ export default class Login extends Component {
         const bodyFormData = {"user_email": email, "user_password": password}
         axios.post(url, bodyFormData)
             .then(result => {
-                console.info(result)
                 if (result.data.token) {
-                    localStorage.setItem('token', result.data.token);
-                    window.location.href = '/home'
-                    this.setState({redirect: true, isLoading: false});
                     localStorage.setItem('isLoggedIn', true);
+                    localStorage.setItem('token', result.data.token);
+                    this.setState({redirect: true, isLoading: false});
+                    if (localStorage.getItem('redirect')) {
+                        localStorage.removeItem('redirect')
+                        window.location.href = '/recipe-details'
+                    } else {
+                        window.location.href = '/home'
+                    }
                 }
             })
             .catch(error => {
