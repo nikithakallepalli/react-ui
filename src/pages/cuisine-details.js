@@ -78,9 +78,9 @@ export default class CuisineDetails extends Component {
                                 <section className="flex-row card-list">
                                     {this.state.recipes.map((recipe, index) =>
                                         <div className="recipe-card ingredients-hover single-recipe visible GuidedRecipe YummlyOriginal" data-url="5-Ingredient-Sugar-Cookies-2376884" role="link" id="05-Ingredient-Sugar-Cookies-2376884">
-                                            <span className="paywall-action-text justification-flag font-bold background-light micro-text">
-                                            <span className="icon locked  y-icon" data-icon=""></span>
-                                            <span className="text ">Original</span></span>
+                                            {/*<span className="paywall-action-text justification-flag font-bold background-light micro-text">*/}
+                                            {/*<span className="icon locked  y-icon" data-icon=""></span>*/}
+                                            {/*<span className="text ">Original</span></span>*/}
                                             <div className="recipe-card-img-wrapper">
                                                 <div>
                                                     {recipe.image ? (
